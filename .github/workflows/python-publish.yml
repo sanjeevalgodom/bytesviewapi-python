@@ -23,5 +23,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install setuptools wheel twine
     - name: Build and publish
+
       run: |
         python setup.py sdist bdist_wheel
+      env:
+        PYTEST_TOKEN: ${{ secrets.PYTEST_TOKEN }}
+      run: |
+        export PYTEST_TOKEN = "%PYTEST_TOKEN%"  
+        pytest
