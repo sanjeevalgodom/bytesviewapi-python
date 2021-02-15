@@ -27,5 +27,6 @@ jobs:
       env:
         PYTEST_TOKEN: ${{ secrets.PYTEST_TOKEN }}
       run: |
+        echo $PYTEST_TOKEN
         #python setup.py sdist bdist_wheel pytest  
         pytest
